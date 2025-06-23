@@ -9,7 +9,7 @@ By default, the embedded Spotify player only allows **30-second previews** unles
 - Is logged into their Spotify account in the browser, **and**
 - Has a valid **Spotify Premium** subscription.
 
-This is a limitation of Spotify's embed service and cannot be changed via JavaScript.
+This is a limitation of Spotify's embed service .
 
 ### ✅ Full Playback Instructions
 
@@ -17,5 +17,4 @@ If the user is logged in and has Premium, the full song will play inside the emb
 
 We recommend adding a message in the interface:
 
-```html
-<small class="note">🔓 Log in to Spotify and ensure you have Premium to listen to full tracks.</small>
+
