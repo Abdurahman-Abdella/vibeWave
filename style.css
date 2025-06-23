@@ -361,4 +361,8 @@ h1 {
 	.text .album-num{
 		font-size: 35px;
 	}
+
+  .emblem {
+		font-size: 20px;
+	}
 }
