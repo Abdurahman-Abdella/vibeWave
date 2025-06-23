@@ -366,6 +366,7 @@ h1 {
 @media (max-width: 500px) {
   .text .album-title {
     font-size: 40px; /* smaller font on small screens */
+		margin-right: 130px;
   }
 
 	.text span{
