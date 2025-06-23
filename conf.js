@@ -5,12 +5,15 @@ const sectionContainer = document.querySelector("section");
 const bodyContainer = document.querySelector("body");
 const emblemDiv = document.querySelector(".emblem");
 const albumTitleSpan = document.querySelector(".album-title");
+const albumSpan = document.querySelector(".album-author");
+
 const texts = document.querySelectorAll(".text");
 const albumNum = document.querySelector(".album-num");
 const spotifyWidget = document.querySelector(".spotify-widget iframe");
 const albums = [
   {
     album: "Timeless",
+		author: "The Weekend",
     emblem: "Life is better with music",
     "bg-color": ["#e0b86f", "#0D1827"],
     "accent-color": "#e0b86f",
@@ -19,6 +22,7 @@ const albums = [
   },
   {
     album: "One of the girls",
+		author: "The Weekend",
     emblem: "Life is better with music",
     "bg-color": ["#c72f2f", "#0D1827"],
     "accent-color": "#c72f2f",
@@ -27,6 +31,8 @@ const albums = [
   },
   {
     album: "Starboy",
+		author: "The Weekend",
+
     emblem: "Life is better with music",
     "bg-color": ["#ffbd44", "#0D1827"],
     "accent-color": "#ffbd44",
@@ -35,12 +41,70 @@ const albums = [
   },
   {
     album: "Blinding lights",
+		author: "The Weekend",
+
     emblem: "Life is better with music",
     "bg-color": ["#580f41", "#0D1827"],
     "accent-color": "#a72a6b",
     url: "images/blindin.jpg",
     spotify: "https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b?utm_source=generator"
   },
+
+	  {
+    album: "Standin next to You",
+    author: "Jungkook",
+    emblem: "Life is better with music",
+    "bg-color": ["#1db954", "#0D1827"],
+    "accent-color": "#1db954",
+    url: "images/jungkook.jpg", 
+    spotify: "https://open.spotify.com/embed/track/2KslE17cAJNHTsI2MI0jb2?utm_source=generator"
+  },
+  {
+    album: "NINAO",
+    author: "Gims",
+    emblem: "Life is better with music",
+    "bg-color": ["#1db954", "#0D1827"],
+    "accent-color": "#1db954",
+    url: "images/gims.jpg",
+    spotify: "https://open.spotify.com/embed/track/2uBKQbVcw8G9m34lGYM6VA?utm_source=generator"
+  },
+  {
+    album: "The Search",
+    author: "NF",
+    emblem: "Life is better with music",
+    "bg-color": ["#1db954", "#0D1827"],
+    "accent-color": "#1db954",
+    url: "images/nate.jpg",
+    spotify: "https://open.spotify.com/embed/track/3oLe5ZILASG8vU5dxIMfLY?utm_source=generator"
+  },
+  {
+    album: "Stay",
+    author: "Justin beiber",
+    emblem: "Life is better with music",
+    "bg-color": ["#1db954", "#0D1827"],
+    "accent-color": "#1db954",
+    url: "images/justice.jpg",
+    spotify: "https://open.spotify.com/embed/track/567e29TDzLwZwfDuEpGTwo?utm_source=generator"
+  },
+  {
+    album: "Thats what i like",
+    author: "Bruno mars",
+    emblem: "Life is better with music",
+    "bg-color": ["#1db954", "#0D1827"],
+    "accent-color": "#1db954",
+    url: "images/mars.jpg",
+    spotify: "https://open.spotify.com/embed/track/0KKkJNfGyhkQ5aFogxQAPU?utm_source=generator"
+  },
+  {
+    album: "Uptown Funk",
+    author: "Bruno mars",
+    emblem: "Life is better with music",
+    "bg-color": ["#1db954", "#0D1827"],
+    "accent-color": "#1db954",
+    url: "images/uptown.jpg",
+    spotify: "https://open.spotify.com/embed/track/32OlwWuMpZ6b0aN2RZOeMS?utm_source=generator"
+  }
+
 ];
 
 
@@ -90,14 +154,20 @@ const updateDisplay = (index) => {
 	bodyContainer.style.background = `linear-gradient(180deg, ${album["bg-color"][0]} 0%, ${album["bg-color"][1]} 100%)`;
 	heroDiv.style.backgroundImage = `url(${album.url})`;
 	albumTitleSpan.textContent = album.album;
+	albumSpan.textContent = album.author || "";
+
 	spotifyWidget.src = album.spotify;
 
 	const number = index + 1;
 	albumNum.innerText = number >= 10 ? number + "." : `0${number}.`;
 	albumNum.style.color = album["accent-color"];
 
-	if (index === 3) scrollRight.classList.add("hide-arrow");
-	else scrollRight.classList.remove("hide-arrow");
+	if (index === albums.length - 1) {
+  scrollRight.classList.add("hide-arrow");
+} else {
+  scrollRight.classList.remove("hide-arrow");
+}
+
 
 	createEmblem(album.emblem, DELIMITER[0] || undefined).forEach((node) =>
 		emblemDiv.append(node)

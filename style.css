@@ -378,11 +378,3 @@ h1 {
 	}
 }
 
-.note {
-  display: block;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
-  text-align: center;
-  opacity: 0.8;
-}
